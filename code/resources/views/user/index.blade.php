@@ -39,13 +39,13 @@
                     <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
                         <div class="category-block">
                             <div class="header">
+                                <a href="{{ $category->postsPath() }}">
                                 <i class="fa fa-cutlery icon-bg-1"></i> 
-                                <h4>
-                                    <a href="{{ $category->postsPath() }}">
+                                    <h4>
                                         {{ $category->name }} 
                                         <p style="display: inline">({{ $category->posts->count() }})</p>
-                                    </a>
-                                </h4>
+                                    </h4>
+                                </a>
                             </div>
                         </div>
                     </div>
