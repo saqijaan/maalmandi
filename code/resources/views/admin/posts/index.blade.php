@@ -35,7 +35,7 @@
                             <td>{{ $post->description }}</td>
                             <td><img style="width:150px;height:100px;" src="{{ $post->main_image_path }}"></td>
                             <td>{{ $post->user ?$post->user->name:'' }}</td>
-                            <td>{{ $post->actives ?'Active':'Disabled' }}</td>
+                            <td>{{ $post->active ?'Active':'Disabled' }}</td>
                             <td>
                                 <a href="{{ route('post.edit',$post->id) }}" class="btn btn-xs btn-info">Edit</a>
                                 <form method="POST" action="{{ route('post.destroy',$post->id) }}" accept-charset="UTF-8" style="display: inline-block;" onsubmit="return confirm(&#039;Are you sure?&#039;);"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="VwswwFEfOs3wQucy1dV57z349Iulha5ZgHuCDhTK">

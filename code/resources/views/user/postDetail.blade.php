@@ -35,13 +35,33 @@
                     <br>
                     <div class="row">
                         <div class="col-md-4">
-                            <a href="{{ $post->main_image_path }}" target="_blank"><img class="card-img-top img-fluid" src="{{  $post->main_image_path }}"/></a>                    
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <a href="{{ $post->main_image_path }}" target="_blank">
+                                        <img class="card-img-top img-fluid" id="mainImage" src="{{  $post->main_image_path }}"/>
+                                    </a>
+                                </div>
+                            </div>  
+                            <div class="row mt-3" id="otherImages">
+                                <div class="col">
+                                    <img class="card-img-top img-fluid" src="http://maalmandi.test/images/logo.png"/>
+                                </div>
+                                <div class="col">
+                                    <img class="card-img-top img-fluid" src="{{  $post->main_image_path }}"/>
+                                </div>
+                                <div class="col">
+                                    <img class="card-img-top img-fluid" src="{{  $post->main_image_path }}"/>
+                                </div>
+                            </div>                  
                         </div>
                         <div class="col-md-8 pt-0 content">
                             <div class="tab-content" id="pills-tabContent">
                                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                                     <h3 class="tab-title">Post Details</h3>
-                                    <h4 class="tab-title">Price : {{ $post->price }} Rs.</h4>
+                                    <h4 class="tab-title">Price : <i><u>{{ $post->price }}</u></i> Rs.</h4>
+                                    <h4 class="tab-title">Seller Name : <i><u>{{ $post->name }}</u></i></h4>
+                                    <h4 class="tab-title">Phone : <i><u>{{ $post->phone }}</u></i></h4>
+                                    <h4 class="tab-title">Address : <i><u>{{ $post->address }}</u></i></h4>
                                     <p>{{ $post->description }}</p>
                                 </div>
                                 {{-- <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
@@ -74,4 +94,15 @@
     </div>
     <!-- Container End -->
 </section>
+@endsection
+
+@section('js')
+    <script>
+        $(function(){
+            $('#otherImages').on('click','img',function(){
+                $('#mainImage').attr('src',$(this).attr('src'));
+                $("#mainImage").closest('a').attr('href',$(this).attr('src'));
+            });
+        })
+    </script>
 @endsection

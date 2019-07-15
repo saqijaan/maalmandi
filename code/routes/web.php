@@ -15,6 +15,10 @@ Route::get('seed', function () {
     Artisan::call('migrate',['--seed'=>true]);
 });
 
+Route::get('/migrate', function(){
+    Artisan::call('migrate');
+});
+
 Auth::routes();
 
 Route::group(['namespace'=>'User','as'=>'user.'], function () {

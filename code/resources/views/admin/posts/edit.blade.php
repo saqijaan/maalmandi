@@ -59,6 +59,17 @@
                             @endif
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 form-group">
+                            <label for="price" class="control-label">Price*</label>
+                            <input type="number" min="0" class="form-control" placeholder="" required="" value="{{ old('price',$post->price) }}" name="price" type="text" id="price">
+                            @if ($errors->has('price'))
+                                <p class="text-danger">{{ $errors->first('price') }}</p>
+                            @endif
+                        </div>
+                    </div>
+
                     <div class="row">
                         <div class="col-xs-12 form-group">
                             <label for="main_image" class="control-label">Image*</label>
@@ -82,6 +93,40 @@
                             @endif
                         </div>
                     </div>
+
+                    <hr>
+                    <h3>Contact Details</h3>
+
+                    <div class="row">
+                        <div class="col-xs-12 form-group">
+                            <label for="Name" class="control-label">Name*</label>
+                            <input type="text" min="0" class="form-control" placeholder="" required="" value="{{ old('contact[name]',$post->name) }}" name="contact[name]" type="text" id="Name">
+                            @if ($errors->has('contact_name'))
+                                <p class="text-danger">{{ $errors->first('contact_name') }}</p>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 form-group">
+                            <label for="contact_phone" class="control-label">Contact Phone*</label>
+                            <input type="text" min="0" class="form-control" placeholder="" required="" value="{{ old('contact[phone]',$post->phone) }}" name="contact[phone]" type="text" id="contact_phone">
+                            @if ($errors->has('contact_phone'))
+                                <p class="text-danger">{{ $errors->first('contact_phone') }}</p>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 form-group">
+                            <label for="contact_address" class="control-label">Contact Address*</label>
+                            <input type="text" min="0" class="form-control" placeholder="" required="" value="{{ old('contact[address]',$post->address) }}" name="contact[address]" type="text" id="contact_address">
+                            @if ($errors->has('contact_address'))
+                                <p class="text-danger">{{ $errors->first('contact_address') }}</p>
+                            @endif
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <input class="btn btn-danger" type="submit" value="Save">

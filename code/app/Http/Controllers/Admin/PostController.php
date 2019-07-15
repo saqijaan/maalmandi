@@ -63,6 +63,8 @@ class PostController extends Controller
             'active'        => $request->active,
             'description'   => $request->description,
             'main_image'    => $imageName,
+            'contact'       => $request->contact,
+            'price'         => $request->price,
         ]);
 
         session()->flash('alert-success', 'Post Created Successfully');
@@ -135,6 +137,8 @@ class PostController extends Controller
             'active'        => $request->active,
             'description'   => $request->description,
             'main_image'    => $imageName,
+            'contact'       => $request->contact,
+            'price'         => $request->price,
         ]);
 
         session()->flash('alert-success', 'Post Updated Successfully');

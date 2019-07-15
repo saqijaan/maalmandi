@@ -3,15 +3,27 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\JsonColumnTrait;
 
 class Post extends Model
 {
+    use JsonColumnTrait;
+    
     protected $casts = [
-        'images' => 'Array'
+        'images' => 'Array',
+        'contact' => 'Object'
     ];
 
     protected $fillable=[
-        'title','category_id','city_id','description','user_id','active','main_image','price'
+        'title',
+        'category_id',
+        'city_id',
+        'description',
+        'user_id',
+        'active',
+        'main_image',
+        'price',
+        'contact'
     ];
 
     protected $appends = [
