@@ -60,6 +60,16 @@
                                         </ul>
                                         <p class="card-text">{{ $post->description }}</p>
                                         <h4 class="card-text text-danger">Price: {{ $post->price }} Rs.</h4>
+                                        <h4 class="tab-title">Seller Name : <i><u>{{ $post->name }}</u></i></h4>
+                                        <h4 class="tab-title">Phone : <i><u>{{ $post->phone }}</u></i></h4>
+                                        <h4 class="tab-title">Address : <i><u>{{ $post->address }}</u></i></h4>
+                                    </div>
+                                    <div class="card-footer">
+                                        <a href="#" class="btn-sm btn-danger" onclick="return confirmDelete('#FORM-{{ $post->id }}')"><i class="fa fa-trash"></i></a>
+                                        <form action="{{ route('user.post.destroy',$post->id) }}" id="FORM-{{$post->id}}" method="POST">
+                                            @method('Delete')
+                                            @csrf
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -75,4 +85,15 @@
         </div>
     </div>
 </section>
+@endsection
+
+@section('js')
+    <script>
+        function confirmDelete(form){
+            if ( confirm("Are you sure you want to delete this post? ") ){
+                $(form).submit();
+            }
+            return false;
+        }
+    </script>
 @endsection

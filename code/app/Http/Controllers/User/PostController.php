@@ -66,6 +66,7 @@ class PostController extends Controller
             'description'   => $request->description,
             'price'         => $request->price,
             'main_image'    => $imageName,
+            'contact'       => $request->contact
         ]);
 
         session()->flash('alert-success', 'Post Created Successfully');
@@ -115,6 +116,8 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        session()->flash('alert-success', 'Post Deleted Successfully');
+        return back();
     }
 }
